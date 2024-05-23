@@ -1,0 +1,29 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--  <h1>details</h1>-->
+<!--</head>-->
+<!--<body>-->
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<form>
+    <label>Name</label>
+    <input type="text"name="name"value="{{det.name}}">
+     <label>PhoneNumber</label>
+    <input type="text"name="phno"value="{{det.phno}}">
+     <label>Username</label>
+    <input type="text"name="username"value="{{det.username}}">
+    <label>Address</label>
+    <input type="text"name="address"value="{{det.username}}">
+     <label>Skills</label>
+    <input type="text"name="skills"value="{{det.address}}">
+</form>
+{{det.name}}
+{{det.pname}}
+
+<!--</body>-->
+<!--</html>-->
+{% endblock %}

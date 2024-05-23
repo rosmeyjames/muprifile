@@ -1,0 +1,33 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--  <h1>details</h1>-->
+<!--</head>-->
+<!--<body>-->
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<form method="POST"ENCTYPE="multipart/form-data">
+    {% csrf_token %}
+    <table><tr><td>
+        <label>Id</label></td><td>
+        <input type="number"name="id"value="{{det.id}}"></td><tr><td>
+        <label>ProjectName</label></td><td>
+        <input type="text"name="project_name"value="{{det.project_name}}"></td></tr><tr><td>
+        <label>Description</label></td><td>
+        <input type="text"name="project_desc"value="{{det.project_desc}}"></td><tr><td>
+        <label>Language</label></td><td>
+        <input type="text"name="language"value="{{det.lang}}"></td><tr><td>
+        <label>Image</label></td><td>
+        <img src="{{det.project_image.url}}"name="project_image"></td></tr>
+    </table>
+<!--    <input type="image"name="project_image"value="{{det.project_image}}">-->
+</form>
+{{det.name}}
+{{det.pname}}
+
+<!--</body>-->
+<!--</html>-->
+{% endblock %}

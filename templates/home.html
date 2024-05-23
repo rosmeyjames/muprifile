@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><form>
+{% csrf_token %}
+{% if user.is_authenticated %}
+{{user.username}}
+<a href="{% url 'logout' %}">logout</a>
+{% endif %}</form>
+</body>
+</html>

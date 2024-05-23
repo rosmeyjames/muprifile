@@ -1,0 +1,100 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <form action =""method="POST"enctype="multipart/form-data">
+        {% csrf_token %}
+  <h1>BOOK</h1>
+    {{form.as_p}}
+         <button type="submit" class="btn btn-primary">submit</button>
+        {% for data in page %}
+
+
+     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+<!--        <th scope="col">Language</th>-->
+      <th scope="col">Image</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{data.id}}</th>
+      <td>{{data.book_name}}</td>
+      <td>{{data.book_author}}</td>
+        <td>{{book_image}}</td>
+      <td><img src="{{data.project_image.url}}"></td>
+
+            <td>
+            <a href="{% url 'updatebook' data.id %}" class="btn btn-primary">update</a>
+            <a href="{% url 'detailbook' data.id %}" class="btn btn-primary">details</a>
+            <a href="{% url 'deletebook' data.id %}" class="btn btn-primary">delete</a></td>
+
+
+    </tr>
+
+  </tbody>
+         {% endfor %}
+     </table>
+<!--          <button type="submit" class="btn btn-primary">submit</button>-->
+         <nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {% if page.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+      {% endif %}
+      {% for num in page.paginator.page_range %}
+    <li class="page-item{% if page.number == num %}activate{% endif %}">
+        <a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+
+      {% endfor %}
+      {% if page.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+      {% endif %}
+  </ul>
+</nav>
+    </form>
+
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <input type="text" class="form-control" placeholder="PROJECT-NAME">-->
+<!--    </div>-->
+<!--    <div class="col">-->
+<!--      <input type="text" class="form-control" placeholder="PROJECT-DESRIPTION">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row" STYLE="padding-top:50px;">-->
+<!--    <div class="col">-->
+<!--      <input type="text" class="form-control" placeholder="RONT-END">-->
+<!--    </div>-->
+<!--    <div class="col">-->
+<!--      <input type="text" class="form-control" placeholder="BACK-END">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--    <div class="img">-->
+<!-- <img src="{% static 'assets/img/portfolio/download.jpg' %}" style="padddig-top:30cm;"></div>-->
+<!--  <DIV STYLE="PADDING:10PX; text-align:center;">-->
+<!-- <button type="button" class="btn btn-primary">ADD</button>-->
+<!--    <button type="button" class="btn btn-primary">UPDATE</button>-->
+<!--  <button type="button" class="btn btn-primary">DELETE</button></DIV>-->
+
+
+
+
+
+
+{% endblock %}

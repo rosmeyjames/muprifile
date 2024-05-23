@@ -1,0 +1,35 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--  <h1>details</h1>-->
+<!--</head>-->
+<!--<body>-->
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<form method="POST"ENCTYPE="multipart/form-data">
+    {% csrf_token %}<table><tr><td>
+    <label>Id</label></td><td>
+    <input type="number"name="id"value="{{det.id}}"></td></tr>
+    <tr><td><label>Qualification</label></td>
+        <td><input type="text"name="qual"value="{{det.qual}}"></td></tr>
+    <tr><td> <label>Certification</label></td><td>
+        <input type="text"name="certification"value="{{det.certification}}"></td></tr>
+    <tr><td> <label>Experience</label></td><td>
+        <input type="text"name="experience"value="{{det.experience}}"></td></tr>
+    <tr><td><label>Project</label></td><td>
+    <input type="text"name="project"value="{{det.project}}"></td></tr>
+
+  <tr><td><label>Image</label></td>
+    <td><img src="{{det.image.url}}"></td></tr>
+    </table>
+<!--    <input type="text"name="image"value="{{det.image.url}}">-->
+</form>
+<!--{{det.name}}-->
+<!--{{det.pname}}-->
+
+<!--</body>-->
+<!--</html>-->
+{% endblock %}
